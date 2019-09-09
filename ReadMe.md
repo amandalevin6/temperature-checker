@@ -13,19 +13,29 @@ The Temperature Worksheet & Grading API simplifies science Temperature conversio
 
 ### Installation
 
-#### [Install Laravel](https://laravel.com/docs/5.5/installation)
-Laravel utilizes Composer to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
+#### Download the files
 
-#### Require the Package
-
-Once you have Laravel installed, you can include the temperature checker package with the following command
+Once you have Laravel installed, you can clone the temperature grader repo with the following command
 
 ```bash
-composer require amandalevin6/temperature-checker
+git clone https://github.com/amandalevin6/temperature-grader.git
+```
+Navigate into the temperature grader folder via the command-line
+```bash
+cd temperature-grader
+```
+#### Copy the .env.example file and Connect
+In the root directory, there is a .env.example file that comes with all typical dependencies. Copy that file to our main .env file with the following command:
+
+```bash
+cp .env.example .env
 ```
 
-#### Update the DB Credentials and App URL in your .env file
+#### Create the database & Update the DB Credentials and App URL in your .env file
 
+Create your database on your server.
+
+Then update the database credentials and the app url in your .env file.
 ```
 APP_URL=http://localhost
 DB_HOST=localhost
@@ -34,25 +44,29 @@ DB_USERNAME=user
 DB_PASSWORD=password
 ```
 
-### Installing
+#### Install the dependencies
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
-```
-Give the example
+```bash
+composer install
 ```
 
-And repeat
+#### Generate an Application Key
+```bash
+php artisan key:generate
+```
+#### Run the database migrations
+
+Import the database structure by running the artisan migrate command
 
 ```
-until finished
+php artisan migrate
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+### Getting Started
 
-## Running the tests
+#### Creating a user account & access token
+
+
 
 Explain how to run the automated tests for this system
 
@@ -78,30 +92,11 @@ Add additional notes about how to deploy this on a live system
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [Laravel](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Amanda Levin** - *Initial work* - [amandalevin6](https://github.com/amandalevin6)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
