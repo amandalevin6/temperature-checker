@@ -1,17 +1,37 @@
-# Project Title
+# Temperature Worksheet & Grading API
 
-One Paragraph of project description goes here
+The Temperature Worksheet & Grading API simplifies science Temperature conversion worksheet grading by doing the answer checking for you.  It allows you to create/update/view/delete Temperature conversion questions (Fahrenheit to Celsius, Fahrenheit to Kelvin, Celsius to Rankine, etc.), worksheets - which are grouping of questions, students and answers.  The api  
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+### Requirements
 
-### Prerequisites
+* PHP >= 7.2.0
+* Composer
+* Laravel 5.5
 
-What things you need to install the software and how to install them
+
+### Installation
+
+#### [Install Laravel](https://laravel.com/docs/5.5/installation)
+Laravel utilizes Composer to manage its dependencies. So, before using Laravel, make sure you have Composer installed on your machine.
+
+#### Require the Package
+
+Once you have Laravel installed, you can include the temperature checker package with the following command
+
+```bash
+composer require amandalevin6/temperature-checker
+```
+
+#### Update the DB Credentials and App URL in your .env file
 
 ```
-Give examples
+APP_URL=http://localhost
+DB_HOST=localhost
+DB_DATABASE=database
+DB_USERNAME=user
+DB_PASSWORD=password
 ```
 
 ### Installing
