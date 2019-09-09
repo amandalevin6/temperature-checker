@@ -24,7 +24,7 @@ Navigate into the temperature grader folder via the command-line
 ```bash
 cd temperature-grader
 ```
-#### Copy the .env.example file and Connect
+#### Create your .env file from the .env.example
 In the root directory, there is a .env.example file that comes with all typical dependencies. Copy that file to our main .env file with the following command:
 
 ```bash
@@ -64,31 +64,68 @@ php artisan migrate
 
 ### Getting Started
 
-#### Creating a user account & access token
+#### Creating a user account & api token
 
-
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+To create a user account post your user details to http://yourappurl.com/register in the following format
 
 ```
-Give an example
+name:John Doe
+email:John.Doe@company.com
+password:{Your Password}
+password_confirmation:{Your Password}
 ```
 
-### And coding style tests
+You will get back your user info, including your newly generated api token which you will need to use in your requests.
 
-Explain what these tests test and why
+##### API Entities
 
-```
-Give an example
-```
+The Entities in the API and their fields are:
 
-## Deployment
+* Students
+-> id
+-> guid
+-> name
 
-Add additional notes about how to deploy this on a live system
+* Worksheets
+-> id
+-> name
+
+* Questions
+-> id
+-> name
+-> input_temperature
+-> unit_of_measure
+-> answer
+
+* Answers
+-> id
+-> student_id
+-> worksheet_id
+-> question_id
+-> answer_value
+-> grade
+
+Each of those entities has functions to View All, View one, Create One, Update and Delete. 
+The functions urls for worksheets for example are as follows:
+View ALL = GET http://yourappurl.com/worksheets
+View One = GET http://yourappurl.com/worksheets/{id}
+Create One = POST http://yourappurl.com/worksheets
+Update One = http://yourappurl.com/students/{id}
+
+The functions urls for students filter on the external variable guid and are as follows:
+View One = GET http://yourappurl.com/students/{guid}
+Update One = http://yourappurl.com/students/{guid}
+
+#### Creating multiple Entities at one time
+
+There are a few extra features on the create questions and answers api calls
+
+On Questions and Answers if you post `worksheet_name`, if there is no worksheet with that name the system will create one, otherwise, it will retrieve the id of the existing worksheet.
+
+On Answers if you post `question_name`, if there is no question with that name belonging to that specific worksheet, the system will create one, otherwise, it will retrieve the id of the existing question.
+
+On Answers if you post `student_name` & `student_guid`, if there is no student with that name and guid, the system will create one, otherwise, it will retrieve the id of the existing student.
+
 
 ## Built With
 
