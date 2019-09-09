@@ -81,29 +81,29 @@ You will get back your user info, including your newly generated api token which
 
 The Entities in the API and their fields are:
 
-* Students
--> id
--> guid
--> name
+###### Students
+*  id
+*  guid
+*  name
 
-* Worksheets
--> id
--> name
+###### Worksheets
+*  id
+*  name
 
-* Questions
--> id
--> name
--> input_temperature
--> unit_of_measure
--> answer
+###### Questions
+*  id
+*  name
+*  input_temperature
+*  unit_of_measure
+*  answer
 
-* Answers
--> id
--> student_id
--> worksheet_id
--> question_id
--> answer_value
--> grade
+###### Answers
+*  id
+*  student_id
+*  worksheet_id
+*  question_id
+*  answer_value
+*  grade
 
 Each of those entities has functions to View All, View one, Create One, Update and Delete. 
 The functions urls for worksheets for example are as follows:
